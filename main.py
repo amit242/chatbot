@@ -2,6 +2,7 @@ import sys, getopt
 import api
 from bot import Cal
 
+
 def main(argv):
     _reloadbrain = False
     _offline = False
@@ -13,14 +14,14 @@ def main(argv):
 
     for opt, arg in opts:
         if opt in ('-h', '--help'):
-            print 'cal.py\t-r\t\t:reload bot brain\n\t-o\t\t:run in offline'
+            print 'main.py\t-r\t\t:reload bot brain\n\t-o\t\t:run in offline mode'
             sys.exit()
         elif opt in ("-r", "--reload"):
             _reloadbrain = True
         elif opt in ("-o", "--offline"):
             _offline = True
 
-    print 'reload:', _reloadbrain
+    #print 'reload:', _reloadbrain
     bot = Cal()
     bot.loadkernel(_reloadbrain)
 
@@ -28,7 +29,8 @@ def main(argv):
         # Press CTRL-C to break this loop
         while True:
             # print kernel.respond(raw_input("Enter your message >> "))
-            message = raw_input("Enter your message to the bot: ")
+            message = raw_input("You: ")
+            sys.stdout.write('cal:')
             if message == "quit":
                 exit()
             elif message == "save":

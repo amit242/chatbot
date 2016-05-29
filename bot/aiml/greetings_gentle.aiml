@@ -25,6 +25,6 @@
     </category>
     <category>
         <pattern>HOW YOU DOING</pattern>
-        <template>Hello Joey</template>
+        <template>Hello Joey!!!</template>
     </category>
 </aiml>

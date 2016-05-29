@@ -20,10 +20,10 @@ class talk:
         # TODO: basic security
         #print web.data()
         human_msg = web.input()
-        print human_msg.msg
+        print 'human:',human_msg.msg
         global _bot
         output = _bot.reply(human_msg.msg)
-        print output
+        print 'bot:', output
         return output
 
 
