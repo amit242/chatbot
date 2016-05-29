@@ -54,8 +54,8 @@ offline mode doesn't spawn the rest api. Useful when debugging only the bot
 in offline mode below commands are supported by the bot. these commands can be given to the bot as runtime input
     
     "quit" : exit
-    "reload aiml": reloads the aiml into bot's 
-    "save" :
+    "reload aiml": reloads the aiml into bot's cache memory. make sure to save if the change needs to persisted in bot's brain
+    "save" : writes the aiml into bot's brain
 
 
     
