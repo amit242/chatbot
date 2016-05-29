@@ -16,6 +16,7 @@ Setup development environment
     pip install virtualenv
     
 3) install git
+
 4) clone this repo in a folder of your local system
 
     git clone <repo url>
