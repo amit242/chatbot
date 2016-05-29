@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1">
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            <random>
+                <li>aye</li>
+                <li>aye aye captain</li>
+                <li>ahoy</li>
+                <li>ahoy bucko</li>
+                <li>I'll Crush Ye Barnacles</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>HI *</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+    <category>
+        <pattern>HELLO</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+    <category>
+        <pattern>HELLO *</pattern>
+        <template><srai>HI</srai></template>
+    </category>
+</aiml>
