@@ -5,6 +5,7 @@ package_directory = os.path.dirname(os.path.abspath(__file__))
 brainfile = package_directory + "/bot_brain.brn"
 startupxmlfile = package_directory + "/aiml/std-startup.xml"
 
+
 class Cal:
     def __init__(self):
         self.kernel = None
