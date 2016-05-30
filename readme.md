@@ -1,7 +1,7 @@
-Basic chatbot boiler-plate
-==========================
+Basic chatbot boilerplate
+=========================
 
-This boiler plate code has a basic bot developed using aiml with out of the box rest api support
+This boilerplate code has a basic bot developed using aiml with out of the box rest api support
 
 Setup development environment
 -----------------------------
