@@ -1,0 +1,7 @@
+{
+  "name": "Chatbot Cal",
+  "description": "A barebones chatbot",
+  "image": "heroku/python",
+  "repository": "https://github.com/amit242/chatbot",
+  "keywords": ["python"]
+}
