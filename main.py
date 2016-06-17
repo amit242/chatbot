@@ -7,7 +7,7 @@ def main(argv):
     _reloadbrain = False
     _offline = False
     try:
-      opts, args = getopt.getopt(argv, "hro", ["help", "reload", "offline"])
+        opts, args = getopt.getopt(argv, "hro", ["help", "reload", "offline"])
     except getopt.GetoptError:
         print 'worng input, try: cal.py -r'
         sys.exit(2)
@@ -43,6 +43,7 @@ def main(argv):
         api.addbot(bot)
         runner.run()
 
+print 'module name:', __name__
 if __name__ == "__main__":
     main(sys.argv[1:])
 

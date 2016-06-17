@@ -2,11 +2,14 @@ import web
 
 
 urls = (
-    '/bot/talk', 'talk',
+    '/', 'hello',
+    '', 'hello',
+    '/bot/conversation', 'conversation',
     'bot/save'
 )
 
 _bot = None
+
 
 def addbot(bot):
     global _bot
@@ -14,7 +17,12 @@ def addbot(bot):
     print 'adding bot', _bot
 
 
-class talk:
+class hello:
+    def GET(self):
+        return {'msg': 'it works'}
+
+
+class conversation:
     def POST(self):
         #print web.ctx.env.get('HTTP_AUTHORIZATION')
         # TODO: basic security
