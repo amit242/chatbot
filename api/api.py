@@ -35,14 +35,16 @@ class conversation:
         return output
 
 
-print 'module name:', __name__
-
-
 class ApiRunner(web.application):
+    def __init__(self):
+        self.app = web.application(urls, globals())
 
-    def run(self, port=8080):
-        app = web.application(urls, globals())
-        return web.httpserver.runsimple(app.wsgifunc(), ('0.0.0.0', port))
+    def get_api(self):
+        return self.app
+
+    def run(self, port=8080, val=False):
+        print 'running...', port, val
+        return web.httpserver.runsimple(self.app.wsgifunc(), ('0.0.0.0', port))
 
 
 if __name__ == "__main__":

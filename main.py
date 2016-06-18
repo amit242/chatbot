@@ -3,11 +3,12 @@ import api
 from bot import Cal
 
 
-def main(argv):
+def main(argv, isServer=False):
     _reloadbrain = False
     _offline = False
     try:
         opts, args = getopt.getopt(argv, "hro", ["help", "reload", "offline"])
+
     except getopt.GetoptError:
         print 'worng input, try: cal.py -r'
         sys.exit(2)
@@ -41,9 +42,16 @@ def main(argv):
     else:
         runner = api.ApiRunner()
         api.addbot(bot)
-        runner.run()
+        if not isServer:
+            runner.run(8081, True)
+        else:
+            return runner.get_api()
 
-print 'module name:', __name__
-if __name__ == "__main__":
+print 'module name XX:', __name__
+if __name__ == "__main__" or __name__ == "main":
     main(sys.argv[1:])
+
+
+def run_gunicorn():
+    return main(sys.argv[1:], True)
 
