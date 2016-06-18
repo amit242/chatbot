@@ -9,7 +9,7 @@ urls = (
 )
 
 _bot = None
-token = 'EAAYnMQzpL0EBAD4aprvtqfQnRQ5BI4bYobYzYtmmZBsysFwXQvZA3mfb1JrAf99hVD7OWjzfbrDgBukMZCzeWEOGs6V97kkVXxxZCSjNEArvfq7x5moLCXbOoVjuRFon1TA89miyKToJk4CSbHPlhJKqbKNefxp35Wa4MmruhQZDZD'
+verify_token = 'i_solemnly_swear_that_i_have_verified_this'
 
 def addbot(bot):
     global _bot
@@ -19,12 +19,15 @@ def addbot(bot):
 
 class Webhook:
     def GET(self):
-
-        print web.input()['hub.verify_token']
-        if web.input()['hub.verify_token'] == token:
+        print 'get is called'
+        print web.input()
+        if web.input()['hub.verify_token'] == verify_token:
             return web.input()['hub.challenge']
-
         return 'Error, wrong validation token'
+
+    def POST(self):
+        print 'post is called'
+        print web.input()
 
 
 class hello:
