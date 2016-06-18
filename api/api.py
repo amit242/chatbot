@@ -5,16 +5,26 @@ urls = (
     '/', 'hello',
     '', 'hello',
     '/bot/conversation', 'conversation',
-    'bot/save'
+    '/webhook', 'Webhook'
 )
 
 _bot = None
-
+token = 'EAAYnMQzpL0EBAD4aprvtqfQnRQ5BI4bYobYzYtmmZBsysFwXQvZA3mfb1JrAf99hVD7OWjzfbrDgBukMZCzeWEOGs6V97kkVXxxZCSjNEArvfq7x5moLCXbOoVjuRFon1TA89miyKToJk4CSbHPlhJKqbKNefxp35Wa4MmruhQZDZD'
 
 def addbot(bot):
     global _bot
     _bot = bot
     print 'adding bot', _bot
+
+
+class Webhook:
+    def GET(self):
+
+        print web.input()['hub.verify_token']
+        if web.input()['hub.verify_token'] == token:
+            return web.input()['hub.challenge']
+
+        return 'Error, wrong validation token'
 
 
 class hello:
