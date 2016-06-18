@@ -13,4 +13,12 @@ class hello:
 
 app = web.application(urls, globals())
 
-wsgiapp = app.wsgifunc()
+
+
+def myapp():
+    print 'here i am'
+    wsgiapp = app.wsgifunc()
+    return wsgiapp
+
+
+xx = myapp()
