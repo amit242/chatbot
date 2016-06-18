@@ -45,13 +45,11 @@ def main(argv, isServer=False):
         if not isServer:
             runner.run(8081, True)
         else:
-            return runner.get_api()
+            return runner.get_wsgi()
 
 print 'module name XX:', __name__
-if __name__ == "__main__" or __name__ == "main":
+if __name__ == "__main__":
     main(sys.argv[1:])
 
 
-def run_gunicorn():
-    return main(sys.argv[1:], True)
 

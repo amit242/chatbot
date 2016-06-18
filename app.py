@@ -1,24 +1,9 @@
-import web
+import main
+import sys
 
 
-urls = (
-    '/', 'hello',
-    '', 'hello'
-)
-
-class hello:
-    def GET(self):
-        return {'msg': 'it works'}
+def get_app():
+    return main.main(sys.argv[1:], True)
 
 
-app = web.application(urls, globals())
-
-
-
-def myapp():
-    print 'here i am'
-    wsgiapp = app.wsgifunc()
-    return wsgiapp
-
-
-xx = myapp()
+wsgiapp = get_app()

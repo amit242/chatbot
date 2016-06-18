@@ -39,8 +39,8 @@ class ApiRunner(web.application):
     def __init__(self):
         self.app = web.application(urls, globals())
 
-    def get_api(self):
-        return self.app
+    def get_wsgi(self):
+        return self.app.wsgifunc()
 
     def run(self, port=8080, val=False):
         print 'running...', port, val
