@@ -29,6 +29,7 @@ class Webhook:
         print 'post is called'
         print 'input', web.input()
         print 'data', web.data()
+        print 'data', type(web.data())
 
 
 class hello:
