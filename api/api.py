@@ -94,14 +94,17 @@ class FBApiClient():
 
     def send_text_msg(self, recipient_id, msg_txt):
         message_data = {'recipient': {
-                          'id': recipient_id
-                        },
-                        'message': {
-                          'text': msg_txt
-                        }}
+                              'id': recipient_id
+                            },
+                            'message': {
+                              'text': msg_txt
+                            }
+                        }
         self.call_send_api(message_data)
 
     def call_send_api(self, message_data):
+
+        print message_data
 
         data = urllib.urlencode(message_data)
         request = urllib2.Request(base_fb_url, data)
