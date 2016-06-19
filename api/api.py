@@ -99,7 +99,7 @@ class FBApiClient():
                         'message': {
                           'text': msg_txt
                         }}
-        self.call_send_api(self, message_data)
+        self.call_send_api(message_data)
 
     def call_send_api(self, message_data):
 
