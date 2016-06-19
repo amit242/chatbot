@@ -107,7 +107,7 @@ class FBApiClient():
         print message_data
 
         data = urllib.urlencode(message_data)
-        request = urllib2.Request(base_fb_url, data)
+        request = urllib2.Request(base_fb_url, message_data)
         for key, value in headers.items():
             request.add_header(key, value)
 
