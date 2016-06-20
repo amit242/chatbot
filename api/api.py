@@ -1,6 +1,5 @@
 import web
 import json
-import urllib
 import urllib2
 import base64
 
@@ -14,8 +13,6 @@ urls = (
 token = "EAAYnMQzpL0EBAFbEEXNxTn4u2uj63XpQgdbJZAngGmxcMz8gYmpWQZBfpPZBvQY1hfbu9RCyEzFeE707F0ZC9slzOp297DXeWHhsf6gDpGzo0ogR5pL9e2ZA1dO2dHTyTKVH5ItQY7ZCx0SJljH2adKIwJTbcMnBCEpkZAVSDQ2PwZDZD"
 
 base_fb_url = "https://graph.facebook.com/v2.6/me/messages?access_token=" + token
-
-headers = {"Content-Type": "application/json"}
 
 
 _bot = None
@@ -47,7 +44,7 @@ class Webhook:
             for entry in data['entry']:
                 for messaging_event in entry['messaging']:
                     if messaging_event.get('message'):
-                        receive_message (messaging_event)
+                        receive_message(messaging_event)
 
 
 
@@ -86,6 +83,7 @@ class ApiRunner(web.application):
 def receive_message(msg_event):
     sender_id = msg_event['sender']['id']
     msg_txt = msg_event['message']['text']
+    print 'receieve msg:', sender_id, ' msg:', msg_txt
     fb_client = FBApiClient()
     fb_client.send_text_msg(sender_id, msg_txt)
 
@@ -93,27 +91,26 @@ def receive_message(msg_event):
 class FBApiClient():
 
     def send_text_msg(self, recipient_id, msg_txt):
-        message_data = {'recipient': {
-                              'id': recipient_id
+        message_data = {"recipient": {
+                              "id": recipient_id
                             },
-                            'message': {
-                              'text': msg_txt
+                            "message": {
+                              "text": msg_txt
                             }
                         }
         self.call_send_api(message_data)
 
     def call_send_api(self, message_data):
 
-        print message_data
+        print 'raw data:', message_data
 
-        data = urllib.urlencode(message_data)
-        request = urllib2.Request(base_fb_url, message_data)
-        for key, value in headers.items():
-            request.add_header(key, value)
+        json_data = json.dumps(message_data)
+        request = urllib2.Request(base_fb_url, json_data, {"Content-Type": "application/json"})
 
         response = urllib2.urlopen(request)
         res = response.read()
         print 'call_send_api response:', res
+        response.close()
 
 
 if __name__ == "__main__":
