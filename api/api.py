@@ -91,11 +91,12 @@ def receive_message(msg_event):
 class FBApiClient():
 
     def send_text_msg(self, recipient_id, msg_txt):
+        output = _bot.reply(msg_txt)
         message_data = {"recipient": {
                               "id": recipient_id
                             },
                             "message": {
-                              "text": msg_txt
+                              "text": output
                             }
                         }
         self.call_send_api(message_data)
